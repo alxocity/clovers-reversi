@@ -1,0 +1,2 @@
+# clovers-reversi
+Reversi module
