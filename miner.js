@@ -1,2 +1,1 @@
-var miner = require('./lib/miner.js').default
-miner.startMining()
+require('./lib/miner.js').default.startMining();
