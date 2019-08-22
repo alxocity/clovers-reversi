@@ -65,6 +65,9 @@ class Miner {
           fs.appendFileSync(this.log, 'total: ' + this.totalGamesMined + '\r\n');
           this.tempGamesMined = 0
           fs.appendFileSync(this.log, this.reversi.movesString + '\r\n');
+          this.reversi.makeVisualBoard();
+          for (let i = 0; i < this.reversi.BOARDDIM; i++)
+            fs.appendFileSync(this.log, this.reversi.visualBoard[i] + '\r\n');
         }
       }
 
