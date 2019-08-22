@@ -64,7 +64,25 @@ class Miner {
           fs.appendFileSync(this.log, 'average: ' + (this.totalGamesMined / this.totalCloversFound) + '\r\n');
           fs.appendFileSync(this.log, 'total: ' + this.totalGamesMined + '\r\n');
           this.tempGamesMined = 0
+
           fs.appendFileSync(this.log, this.reversi.movesString + '\r\n');
+
+          this.reversi.playGameMovesString(this.reversi.movesString);
+          this.reversi.translateToF5Version();
+          fs.appendFileSync(this.log, this.reversi.movesString + '\r\n');
+
+          this.reversi.playGameMovesString(this.reversi.movesString);
+          this.reversi.translateToD3Version();
+          fs.appendFileSync(this.log, this.reversi.movesString + '\r\n');
+
+          this.reversi.playGameMovesString(this.reversi.movesString);
+          this.reversi.translateToE6Version();
+          fs.appendFileSync(this.log, this.reversi.movesString + '\r\n');
+
+          this.reversi.playGameMovesString(this.reversi.movesString);
+          this.reversi.translateToC4Version();
+          fs.appendFileSync(this.log, this.reversi.movesString + '\r\n');
+
           this.reversi.makeVisualBoard();
           for (let i = 0; i < this.reversi.BOARDDIM; i++)
             fs.appendFileSync(this.log, this.reversi.visualBoard[i].join('') + '\r\n');

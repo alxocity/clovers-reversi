@@ -621,6 +621,96 @@ class Reversi {
       .toUpperCase()
   }
 
+  translateToF5Version(moves = this.moves) {
+    if (!moves.length) return new Error('No Moves')
+    let translated = []
+    for (let i = 0; i < moves.length; i++) {
+      let move = moves[i]
+      move = this.moveToArray(move)
+
+      switch (moves[0].toLowerCase()) {
+        case 'f5':
+          break
+        case 'd3':
+          move = [7 - move[1], 7 - move[0]]
+          break
+        case 'e6':
+          move = [move[1], move[0]]
+          break
+        case 'c4':
+          move = move.map(m => 7 - m)
+          break
+        default:
+          throw new Error('impossibru!!!' + moves[0].toLowerCase())
+      }
+
+      move = this.arrayToMove(move[0], move[1])
+      translated[i] = move
+    }
+    this.moves = translated
+    this.playGameMovesArray()
+  }
+
+  translateToD3Version(moves = this.moves) {
+    if (!moves.length) return new Error('No Moves')
+    let translated = []
+    for (let i = 0; i < moves.length; i++) {
+      let move = moves[i]
+      move = this.moveToArray(move)
+
+      switch (moves[0].toLowerCase()) {
+        case 'f5':
+          move = [7 - move[1], 7 - move[0]]
+          break
+        case 'd3':
+          break
+        case 'e6':
+          move = move.map(m => 7 - m)
+          break
+        case 'c4':
+          move = [move[1], move[0]]
+          break
+        default:
+          throw new Error('impossibru!!!' + moves[0].toLowerCase())
+      }
+
+      move = this.arrayToMove(move[0], move[1])
+      translated[i] = move
+    }
+    this.moves = translated
+    this.playGameMovesArray()
+  }
+
+  translateToE6Version(moves = this.moves) {
+    if (!moves.length) return new Error('No Moves')
+    let translated = []
+    for (let i = 0; i < moves.length; i++) {
+      let move = moves[i]
+      move = this.moveToArray(move)
+
+      switch (moves[0].toLowerCase()) {
+        case 'f5':
+          move = [move[1], move[0]]
+          break
+        case 'd3':
+          move = move.map(m => 7 - m)
+          break
+        case 'e6':
+          break
+        case 'c4':
+          move = [7 - move[1], 7 - move[0]]
+          break
+        default:
+          throw new Error('impossibru!!!' + moves[0].toLowerCase())
+      }
+
+      move = this.arrayToMove(move[0], move[1])
+      translated[i] = move
+    }
+    this.moves = translated
+    this.playGameMovesArray()
+  }
+
   translateToC4Version(moves = this.moves) {
     if (!moves.length) return new Error('No Moves')
     let translated = []
